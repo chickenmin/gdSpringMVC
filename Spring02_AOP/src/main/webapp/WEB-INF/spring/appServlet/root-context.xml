@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<!-- properties파일을 spring이 사용할 수 있는 bean으로 생성한다 -->
+
+	<bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/db.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- properties bean을 통해서 Datasource bean을 생성 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${pw}"/>
+	</bean>
+
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- datasource bean 객체를 사용하여 sqlsessionfactory를 bean으로 만들어 줌 -->
+			<property name="dataSource" ref="dataSource"/>
+			<property name="configLocation" value="classpath:mybatis/Config.xml"/>
+	</bean>
+	<!--화면은 resolver templates  -->
+	
+	<!-- 마이바티스의 sqlsessionfactoryBean을 spring에서 사용하는 template으로 주입해서 사용 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">	<!-- sqlsessionfactory 생성 + sqlsession 생성 -->
+		<constructor-arg ref="sqlSessionFactoryBean"/>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- transaction이 동작되는 상황 메소드 : ADVICE	 -->
+	<tx:advice id="trasactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(public * com.min.edu.service.*Service*.*(..))" id="trasactionPointCut"/>
+		<aop:advisor advice-ref="trasactionAdvice" pointcut="trasactionPointCut"/>
+	</aop:config>
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
