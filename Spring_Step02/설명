@@ -1,0 +1,12 @@
+-Maven Project 생성
+-Maven Build 설정 
+ : maven-compiler-plugin, maven-war-plugin
+ - dependencies
+  : spring-context, spring-mvn
+  
+- web.xml
+ : <servlet> <servlet-mapping>
+ : <servlet-name>의 값은 생성되는 spring bean configuration의 이름-servlet.xml로 생성됨
+- spring bean configuration 파일은
+ : <context:component-scan base-package=""> <!--처음 spring Annotation을 검색하는 최상위 패키지 -->
+ : <mvc:annotation-driven> <!-- mvc의 기능을 @Controller의 기능을 부여하여 탐색함 -->
