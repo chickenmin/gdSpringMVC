@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.UserDaoImpl">
+
+	<!-- 1. 전체 사용자 조회 getAllUserStatus -->
+	<select id="getAllUserStatus" resultType="UserDto">
+		SELECT SEQ , ID , PASSWORD ,
+				NAME , ADDRESS , PHONE ,
+				EMAIL , ENABLE , AUTH
+			FROM MEMBERINFO m 
+	</select>
+
+	<!-- 2. 사용 가능한 사용자 조회 getAllUser -->
+	<select id="getAllUser" resultType="UserDto">
+		SELECT SEQ , ID , PASSWORD ,
+				NAME , ADDRESS , PHONE ,
+				EMAIL , ENABLE , AUTH
+			FROM MEMBERINFO m
+			WHERE ENABLE = 'Y'
+	</select>
+
+	<!-- 3. 권한 수정 updateAuthUser -->
+	<update id="updateAuthUser" parameterType="java.util.Map">
+		UPDATE MEMBERINFO SET AUTH = #{auth}
+			WHERE SEQ = #{seq}
+	</update>
+
+	<!-- 4. 사용자 입력 insertUser -->
+	<insert id="insertUser" parameterType="UserDto">
+		INSERT INTO MEMBERINFO (SEQ , ID , PASSWORD , 
+								NAME , ADDRESS , PHONE , 
+								EMAIL , ENABLE , AUTH) 
+			VALUES(MEMBERINFO_SEQ.NEXTVAL, #{id}, #{password}, 
+			#{name}, #{address}, #{phone}, 
+			#{email}, 'Y', 'USER')
+	</insert>
+
+	<!-- 5. 로그인 getLogin -->
+	<select id="getLogin" parameterType="java.util.Map" resultType="UserDto">
+		SELECT SEQ, ID , NAME , AUTH 
+			FROM MEMBERINFO   
+				WHERE ID = #{id}   AND PASSWORD = #{password}  
+								   AND ENABLE = 'Y'
+	</select>
+	
+	<!-- 6. 사용자 상세정보 getUserInfo -->
+	<select id="getUserInfo" parameterType="java.lang.String" resultType="UserDto">
+		SELECT SEQ , ID , PASSWORD ,
+				NAME , ADDRESS , PHONE ,
+				EMAIL , ENABLE , AUTH 
+			FROM MEMBERINFO 
+			WHERE SEQ = #{seq}
+	</select>
+	
+	<!-- 7. 사용자 정보 수정 updateUserInfo -->
+	<update id="updateUserInfo" parameterType="java.util.Map">
+		UPDATE MEMBERINFO
+			SET ADDRESS = #{address}, PHONE = #{phone}, EMAIL = #{email} 
+			WHERE SEQ = #{seq}
+	</update>
+	
+	<!-- 8. 사용자 삭제 delUser -->
+	<delete id="delUser" parameterType="java.lang.String">
+		UPDATE MEMBERINFO SET ENABLE = 'N' 
+			WHERE SEQ = #{seq}
+	</delete>
+	
+	<!-- 9. 아이디 중복 체크 duplicateId -->
+	<select id="duplicateId" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT ID FROM MEMBERINFO 
+			WHERE ID = #{id}
+	</select>
+	
+</mapper>
