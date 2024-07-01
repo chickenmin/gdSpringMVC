@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	
+	<!--
+		접속정보를 가지고 있는 객체 : DataSource
+		Transaction을 처리하는 객체 : TransactionManager
+		Spring container가 관리하는 Bean으로 생성되어 진다
+		=> IoC(Inversion of Controller 제어역전) 
+	 -->
+	 <!--TODO 007 mybatis에서 사용할 vo객체의 alias 선언  -->
+	 <typeAliases>
+	 	<typeAlias type="com.min.edu.dto.EduboardVo" alias="EduVo"/>
+	 </typeAliases>
+
+	<mappers>
+		<mapper resource="sqls/Edu_Statement.xml"/>
+	</mappers>
+
+</configuration>

@@ -1,0 +1,430 @@
+[INFO] 2024-06-26 11:22:15,696 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 11:22:15,709 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4f209819, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15eb5ee5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2145b572, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@39529185, org.springframework.test.context.support.DirtiesContextTestExecutionListener@72f926e6, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3daa422a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@31c88ec8, org.springframework.test.context.event.EventPublishingTestExecutionListener@1cbbffcd]
+[ERROR] 2024-06-26 11:22:16,309 org.springframework.test.context.TestContextManager prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@39529185] to prepare test instance [com.test.edu.SpringBean_JUnitTest@751e664e]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.test.edu.SpringBean_JUnitTest': Unsatisfied dependency expressed through field 'template'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:119)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 29 more
+[INFO] 2024-06-26 11:28:35,854 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 11:28:35,861 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3d74bf60, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4f209819, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@15eb5ee5, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2145b572, org.springframework.test.context.support.DirtiesContextTestExecutionListener@39529185, org.springframework.test.context.transaction.TransactionalTestExecutionListener@72f926e6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3daa422a, org.springframework.test.context.event.EventPublishingTestExecutionListener@31c88ec8]
+[ERROR] 2024-06-26 11:28:36,424 org.springframework.test.context.TestContextManager prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2145b572] to prepare test instance [com.test.edu.SpringBean_JUnitTest@475b7792]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.test.edu.SpringBean_JUnitTest': Unsatisfied dependency expressed through field 'template'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:119)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 29 more
+[INFO] 2024-06-26 11:29:38,086 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 11:29:38,093 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3d74bf60, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4f209819, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@15eb5ee5, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2145b572, org.springframework.test.context.support.DirtiesContextTestExecutionListener@39529185, org.springframework.test.context.transaction.TransactionalTestExecutionListener@72f926e6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3daa422a, org.springframework.test.context.event.EventPublishingTestExecutionListener@31c88ec8]
+[ERROR] 2024-06-26 11:29:38,634 org.springframework.test.context.TestContextManager prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2145b572] to prepare test instance [com.test.edu.SpringBean_JUnitTest@475b7792]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.test.edu.SpringBean_JUnitTest': Unsatisfied dependency expressed through field 'template'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:119)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.mybatis.spring.SqlSessionTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 29 more
+[INFO] 2024-06-26 11:30:25,274 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 11:30:25,283 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@636be97c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50a638b5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1817d444, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ca8564a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@50b472aa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@31368b99, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1725dc0f, org.springframework.test.context.event.EventPublishingTestExecutionListener@3911c2a7]
+[INFO] 2024-06-26 11:37:26,820 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 11:37:26,829 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@76508ed1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@41e36e46, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@15c43bd9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3d74bf60, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4f209819, org.springframework.test.context.transaction.TransactionalTestExecutionListener@15eb5ee5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2145b572, org.springframework.test.context.event.EventPublishingTestExecutionListener@39529185]
+[INFO] 2024-06-26 12:04:53,550 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 12:04:53,559 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31c88ec8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1cbbffcd, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@27ce24aa, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@481a996b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d51f06e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ed7259e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@28eaa59a, org.springframework.test.context.event.EventPublishingTestExecutionListener@3427b02d]
+[INFO] 2024-06-26 12:09:34,386 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 12:09:34,395 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31c88ec8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1cbbffcd, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@27ce24aa, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@481a996b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d51f06e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7ed7259e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@28eaa59a, org.springframework.test.context.event.EventPublishingTestExecutionListener@3427b02d]
+[DEBUG] 2024-06-26 12:09:35,370 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 12:09:35,446 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 12:09:35,582 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 12:09:35,589 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 12:09:35,591 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, N, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 12:09:35,592 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, N, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 12:09:35,592 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, N, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 12:09:35,593 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, N, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 12:09:35,593 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, N, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 12:09:35,594 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, N, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 12:09:35,594 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, N, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 12:09:35,594 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, N, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 12:09:35,596 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, N, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 12:09:35,597 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, N, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 12:09:35,597 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 12:09:35,598 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 12:09:35,598 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, N, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 12:09:35,598 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, N, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 12:09:35,599 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, N, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 12:09:35,601 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 12:09:35,601 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,602 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,602 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,603 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,604 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,605 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,605 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,606 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 12:09:35,606 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 12:09:35,607 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 12:09:35,607 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 12:09:35,607 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 28
+[INFO] 2024-06-26 14:19:43,829 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 14:19:43,837 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[DEBUG] 2024-06-26 14:19:44,940 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:19:45,008 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:19:45,120 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:19:45,124 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:19:45,126 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, N, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:19:45,127 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, N, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:19:45,128 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, N, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:19:45,128 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, N, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:19:45,129 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, N, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:19:45,129 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, N, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:19:45,129 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, N, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:19:45,130 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, N, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:19:45,130 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, N, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:19:45,132 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, N, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:19:45,133 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:19:45,133 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:19:45,134 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, N, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:19:45,134 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, N, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:19:45,135 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, N, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:19:45,137 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:19:45,137 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,138 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,138 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,139 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,140 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,140 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,141 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,141 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:19:45,142 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:19:45,142 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:19:45,142 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:19:45,143 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 28
+[INFO] 2024-06-26 14:19:45,148 com.min.edu.model.EduBoardDaoImpl insertBoard - Eduboard 새글 입력
+[DEBUG] 2024-06-26 14:19:45,149 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==>  Preparing: INSERT INTO EDUBOARD (SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), '?', '?', '?', 'N', CURRENT_DATE)
+[INFO] 2024-06-26 14:20:58,058 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 14:20:58,066 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[DEBUG] 2024-06-26 14:20:59,125 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:20:59,199 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:20:59,336 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:20:59,341 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:20:59,344 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, N, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:20:59,344 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, N, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:20:59,345 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, N, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:20:59,345 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, N, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:20:59,346 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, N, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:20:59,347 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, N, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:20:59,347 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, N, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:20:59,347 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, N, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:20:59,348 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, N, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:20:59,349 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, N, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:20:59,350 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:20:59,350 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:20:59,350 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, N, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:20:59,351 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, N, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:20:59,351 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, N, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:20:59,353 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:20:59,354 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,354 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,355 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,355 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,356 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,356 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,357 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,357 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:20:59,357 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:20:59,358 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:20:59,358 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:20:59,359 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 28
+[INFO] 2024-06-26 14:20:59,365 com.min.edu.model.EduBoardDaoImpl insertBoard - Eduboard 새글 입력
+[DEBUG] 2024-06-26 14:20:59,365 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==>  Preparing: INSERT INTO EDUBOARD (SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), '?', '?', '?', 'N', CURRENT_DATE)
+[INFO] 2024-06-26 14:21:12,325 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 14:21:12,334 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[DEBUG] 2024-06-26 14:21:13,355 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:21:13,429 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:21:13,556 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:21:13,560 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:21:13,562 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, N, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:21:13,562 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, N, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:21:13,563 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, N, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:21:13,563 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, N, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:21:13,564 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, N, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:21:13,564 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, N, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:21:13,564 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, N, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:21:13,565 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, N, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:21:13,565 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, N, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:21:13,567 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, N, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:21:13,567 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:21:13,568 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:21:13,568 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, N, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:21:13,568 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, N, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:21:13,569 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, N, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:21:13,571 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:21:13,572 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,572 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,573 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,574 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,574 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,575 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,575 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,575 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:21:13,576 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:21:13,576 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:21:13,577 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:21:13,577 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 28
+[INFO] 2024-06-26 14:21:13,582 com.min.edu.model.EduBoardDaoImpl insertBoard - Eduboard 새글 입력
+[DEBUG] 2024-06-26 14:21:13,582 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==>  Preparing: INSERT INTO EDUBOARD (SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), '?', '?', '?', 'N', CURRENT_DATE)
+[INFO] 2024-06-26 14:23:55,983 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 14:23:55,990 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[DEBUG] 2024-06-26 14:23:57,004 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:23:57,070 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:23:57,200 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:23:57,203 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:23:57,205 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, N, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:23:57,205 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, N, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:23:57,206 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, N, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:23:57,207 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, N, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:23:57,207 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, N, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:23:57,207 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, N, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:23:57,208 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, N, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:23:57,208 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, N, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:23:57,209 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, N, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:23:57,210 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, N, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:23:57,211 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:23:57,211 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:23:57,212 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, N, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:23:57,212 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, N, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:23:57,213 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, N, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:23:57,214 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:23:57,215 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,215 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,216 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,218 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,218 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,219 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,219 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,220 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, N, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,220 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:23:57,221 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:23:57,221 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:23:57,221 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 28
+[INFO] 2024-06-26 14:23:57,226 com.min.edu.model.EduBoardDaoImpl insertBoard - Eduboard 새글 입력
+[DEBUG] 2024-06-26 14:23:57,227 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==>  Preparing: INSERT INTO EDUBOARD (SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), ?, ?, ?, 'N', CURRENT_DATE)
+[DEBUG] 2024-06-26 14:23:57,228 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==> Parameters: HAPPY(String), CRUD 테스트(String), spring crud 테스트(String)
+[DEBUG] 2024-06-26 14:23:57,242 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - <==    Updates: 1
+[INFO] 2024-06-26 14:23:57,243 com.min.edu.model.EduBoardDaoImpl updateBoard - Eduboard 모든글 delflag y변경
+[DEBUG] 2024-06-26 14:23:57,243 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - ==>  Preparing: UPDATE EDUBOARD SET DELFLAG = 'Y'
+[DEBUG] 2024-06-26 14:23:57,243 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - ==> Parameters: 
+[DEBUG] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - <==    Updates: 29
+[INFO] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl selectBoard - Eduboard 전체 조회
+[DEBUG] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:23:57,245 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 94, HAPPY, CRUD 테스트, spring crud 테스트, Y, 2024-06-26 14:23:57
+[TRACE] 2024-06-26 14:23:57,246 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:23:57,246 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, Y, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:23:57,247 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, Y, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:23:57,247 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, Y, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:23:57,247 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, Y, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:23:57,248 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, Y, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:23:57,248 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, Y, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:23:57,248 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, Y, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:23:57,248 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, Y, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:23:57,249 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, Y, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:23:57,249 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, Y, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:23:57,250 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:23:57,250 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:23:57,250 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, Y, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:23:57,251 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, Y, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:23:57,251 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, Y, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:23:57,251 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:23:57,252 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,252 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,252 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,253 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,253 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,253 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,253 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,254 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:23:57,255 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:23:57,255 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:23:57,255 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:23:57,255 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 29
+[INFO] 2024-06-26 14:25:00,579 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 14:25:00,587 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[DEBUG] 2024-06-26 14:25:01,588 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:25:01,660 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:25:01,790 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:25:01,795 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 94, HAPPY, CRUD 테스트, spring crud 테스트, Y, 2024-06-26 14:23:57
+[TRACE] 2024-06-26 14:25:01,798 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:25:01,799 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, Y, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:25:01,799 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, Y, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:25:01,800 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, Y, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:25:01,801 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, Y, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:25:01,801 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, Y, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:25:01,802 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, Y, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:25:01,802 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, Y, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:25:01,802 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, Y, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:25:01,804 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, Y, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:25:01,804 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, Y, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:25:01,805 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:25:01,805 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:25:01,805 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, Y, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:25:01,806 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, Y, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:25:01,808 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, Y, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:25:01,808 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:25:01,809 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,809 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,810 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,811 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,811 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,812 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,812 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,813 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,813 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:25:01,814 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:25:01,814 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:25:01,814 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 29
+[INFO] 2024-06-26 14:25:01,820 com.min.edu.model.EduBoardDaoImpl insertBoard - Eduboard 새글 입력
+[DEBUG] 2024-06-26 14:25:01,820 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==>  Preparing: INSERT INTO EDUBOARD (SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT) VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), ?, ?, ?, 'N', CURRENT_DATE)
+[DEBUG] 2024-06-26 14:25:01,821 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - ==> Parameters: HAPPY(String), CRUD 테스트(String), spring crud 테스트(String)
+[DEBUG] 2024-06-26 14:25:01,825 com.min.edu.model.EduBoardDaoImpl.insertBoard debug - <==    Updates: 1
+[INFO] 2024-06-26 14:25:01,825 com.min.edu.model.EduBoardDaoImpl updateBoard - Eduboard 모든글 delflag y변경
+[DEBUG] 2024-06-26 14:25:01,825 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - ==>  Preparing: UPDATE EDUBOARD SET DELFLAG = 'Y'
+[DEBUG] 2024-06-26 14:25:01,825 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - ==> Parameters: 
+[DEBUG] 2024-06-26 14:25:01,827 com.min.edu.model.EduBoardDaoImpl.updateBoard debug - <==    Updates: 30
+[INFO] 2024-06-26 14:25:01,827 com.min.edu.model.EduBoardDaoImpl selectBoard - Eduboard 전체 조회
+[DEBUG] 2024-06-26 14:25:01,827 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==>  Preparing: SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT FROM EDUBOARD ORDER BY CREATEAT DESC
+[DEBUG] 2024-06-26 14:25:01,828 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - ==> Parameters: 
+[TRACE] 2024-06-26 14:25:01,828 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==    Columns: SEQ, ID, TITLE, CONTENT, DELFLAG, CREATEAT
+[TRACE] 2024-06-26 14:25:01,829 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 95, HAPPY, CRUD 테스트, spring crud 테스트, Y, 2024-06-26 14:25:01
+[TRACE] 2024-06-26 14:25:01,829 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 94, HAPPY, CRUD 테스트, spring crud 테스트, Y, 2024-06-26 14:23:57
+[TRACE] 2024-06-26 14:25:01,829 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 93, ADMIN, 55, 55, Y, 2024-06-19 15:31:00
+[TRACE] 2024-06-26 14:25:01,830 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 92, HAPPY, a, 333333, Y, 2024-06-19 14:48:45
+[TRACE] 2024-06-26 14:25:01,830 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 91, HAPPY, a, a, Y, 2024-06-19 14:38:49
+[TRACE] 2024-06-26 14:25:01,830 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 90, HAPPY, a, a, Y, 2024-06-19 14:37:54
+[TRACE] 2024-06-26 14:25:01,831 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 89, HAPPY, ddd, dd, Y, 2024-06-19 14:31:00
+[TRACE] 2024-06-26 14:25:01,831 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 88, HAPPY, 44, dd, Y, 2024-06-19 14:30:36
+[TRACE] 2024-06-26 14:25:01,831 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 87, HAPPY, 11, aa, Y, 2024-06-19 14:30:33
+[TRACE] 2024-06-26 14:25:01,832 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 86, HAPPY, 1, a, Y, 2024-06-19 14:30:30
+[TRACE] 2024-06-26 14:25:01,832 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 85, ADMIN, abc, def, Y, 2024-06-19 14:29:28
+[TRACE] 2024-06-26 14:25:01,833 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 84, ADMIN, 아 집, 가고싶다, Y, 2024-06-19 14:28:59
+[TRACE] 2024-06-26 14:25:01,833 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 83, ADMIN, ㅂㅂ, qq, Y, 2024-06-19 13:56:39
+[TRACE] 2024-06-26 14:25:01,834 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 82, ADMIN, ss, sqkqh, Y, 2024-06-19 12:51:05
+[TRACE] 2024-06-26 14:25:01,834 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 81, ADMIN, aa, aa, Y, 2024-06-19 12:50:00
+[TRACE] 2024-06-26 14:25:01,834 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 80, ADMIN, aa, aa, Y, 2024-06-19 12:49:08
+[TRACE] 2024-06-26 14:25:01,835 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 79, ADMIN, aa, aa, Y, 2024-06-19 12:47:44
+[TRACE] 2024-06-26 14:25:01,835 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 78, ADMIN, aaa, aaa, Y, 2024-06-19 12:45:49
+[TRACE] 2024-06-26 14:25:01,835 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 77, HAPPY11, a,  , Y, 2024-06-18 16:38:49
+[TRACE] 2024-06-26 14:25:01,835 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 9, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,835 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 10, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,836 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 11, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,836 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 8, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,838 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 7, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,838 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 6, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,838 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 5, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,838 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 4, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:04
+[TRACE] 2024-06-26 14:25:01,839 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 3, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 15:01:03
+[TRACE] 2024-06-26 14:25:01,839 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 2, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:50:52
+[TRACE] 2024-06-26 14:25:01,839 com.min.edu.model.EduBoardDaoImpl.selectBoard trace - <==        Row: 1, HAPPY, 첫번째, 첫번째 글의 내용 작성, Y, 2024-06-18 14:49:37
+[DEBUG] 2024-06-26 14:25:01,841 com.min.edu.model.EduBoardDaoImpl.selectBoard debug - <==      Total: 30
+[INFO] 2024-06-26 17:38:25,481 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 17:38:25,488 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[INFO] 2024-06-26 17:38:55,025 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 17:38:55,034 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[INFO] 2024-06-26 17:39:30,318 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 17:39:30,326 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]
+[INFO] 2024-06-26 17:40:17,570 org.springframework.test.context.support.DefaultTestContextBootstrapper getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO] 2024-06-26 17:40:17,578 org.springframework.test.context.support.DefaultTestContextBootstrapper getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27ce24aa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@481a996b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3d51f06e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7ed7259e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28eaa59a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3427b02d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@647e447, org.springframework.test.context.event.EventPublishingTestExecutionListener@41fbdac4]

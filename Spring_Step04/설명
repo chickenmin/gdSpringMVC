@@ -1,0 +1,55 @@
+# Prameter 처리
+1) DTO/VO를 사용하여 parameter를 처리한다면
+	페이지에서 전달(form요소) name속성의 값이 이름이 된다
+	setter가 존재해야한다
+	** 바인딩되는 객체는 반드시 default  생성자가 있어야 한다
+2) 만약 요청되는 name을 변경해서 사용하고 싶다면 @RequestParam을 통해서 변경이 가능하다
+	ex) (@RequestParam("user") String id) {...}
+3)요청되는 name이 메소드의 parameter 변수와 같다면
+  변수의 타입을 선언하여 자동으로 형변환을 통해서 받을 수 있다
+  ex)(int age){...}화면의 전송을 무조건 string으로 전송되지만 자동으로 casting된 int를 사용할 수 있다
+4) 요청되는 name과 매핑(setter)되는 객체가 없을 경우 java.util.Map을 통해서 처리가 가능하다
+	반드시 @RequestParam annotation을 선언해줘야 한다
+	예) (@RequestParam Map<String,String> map){...}
+	
+5) 주소에서 필요한 Parameter를 추출해서 사용할 수 있다
+	@PathVariable
+	ex) @GetMapping("/{board}/insert.do")
+	public String insertBoard(@PathVariable("board")String path){
+	
+	}
+	
+	
+#Transaction 처리
+ - Bean으로 생성된 Datasoruce를 통해서 Transaction을 처리할 수 있다
+ - tr prefix를 사용하기 위해서 spring-orm.jar를 필요로 한다
+ - @Service의 bean은 @Repository의 메소드를 조합하여 실행시키는 역할을 하는 bean
+    여기에 실행되는 service 메소드에 @Transactional을 선언하면 해당 메소드는 Transaction 처리가 되는 메소드의 대상이 된다
+   ***Model역할의 bean은 root-context.xml이 생성
+      View/Controller의 역할의 bean은 servlet-context.xml이 생성한다
+      @Controller -> @Service ->@Repository 기능의 처리는 servlet-context.xml(init-param)이 하기 때문에 
+      root-context.xml이 생성한 DataSourceTransactionManager를 servlet-context.xml에서 선언해줘야한다
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

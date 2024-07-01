@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>	<!-- xml은 무조건 첫번째 줄에 이게 잇어야함 주석이나 뛰어쓰기 금지 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!--TODO 008 mybatis에서 사용될 쿼리들의 집합 mapper
+  				namespace="com.min.edu.model.EduBoardDaoImpl"
+    -->
+<mapper namespace="com.min.edu.model.EduBoardDaoImpl">
+
+ 	<select id="selectBoard" resultType="EduVo">
+ 	<!-- <select id="selectBoard" > -->
+		SELECT SEQ, ID,TITLE,CONTENT,DELFLAG,CREATEAT
+		FROM EDUBOARD
+		ORDER BY CREATEAT DESC
+	</select>
+	
+	<insert id="insertBoard" parameterType="eduVo">
+		INSERT INTO EDUBOARD
+							(SEQ, ID, TITLE, 
+							CONTENT, DELFLAG, CREATEAT)
+					VALUES((SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD), #{id}, #{title}, 
+							#{content}, 'N', CURRENT_DATE)
+		
+		<!-- (SELECT NVL(MAX(SEQ),0)+1 FROM EDUBOARD) -->
+	</insert>
+	
+	<update id="updateBoard">
+		UPDATE EDUBOARD SET DELFLAG = 'Y'
+	</update>
+</mapper>
