@@ -65,7 +65,7 @@
 	
 	<filter>
 		<filter-name>AccessLogFilter</filter-name>
-		<filter-class>com.min.edu.filter.LoggerFilter</filter-class>
+		<filter-class>com.min.edu.filter.AccessLogFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>AccessLogFilter</filter-name>	

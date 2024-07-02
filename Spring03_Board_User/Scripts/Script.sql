@@ -88,12 +88,21 @@ UPDATE ANSWERBOARD SET DELFLAG ='N'
 
 
 
+SELECT 'A'||LPAD(MAX(SUBSTR(ID,4,1))+1,3,'0')
+ FROM USERINFO u ;
 
 
 
 
 
-
+		INSERT INTO EDU.USERINFO
+                (ID, NAME, PASSWORD, 
+                EMAIL, AUTH, ENABLE, 
+                JOININDATE)
+			VALUES((SELECT 'A'||LPAD(MAX(SUBSTR(ID,4,1))+1,3,'0')
+ FROM USERINFO u ), '워룡이', 'A004', 
+                'A005@gmail.com', 'U', 'Y', 
+        CURRENT_DATE);
 
 
 
