@@ -55,4 +55,16 @@ public class UserServiceImpl implements IUserService {
 		return dao.findId(map);
 	}
 
+	@Override
+	public List<UserVo> getAllUser() {
+		log.info("UserServiceImpl {}","getAllUser");
+		return dao.getAllUser();
+	}
+	
+	
+	@Override
+	public int setChangeAuth(Map<String, Object> map) {
+		log.info("UserServiceImpl {}","setChangeAuth");
+		return dao.setChangeAuth(map);
+	}
 }

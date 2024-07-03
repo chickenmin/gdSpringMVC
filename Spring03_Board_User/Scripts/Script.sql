@@ -104,6 +104,8 @@ SELECT 'A'||LPAD(MAX(SUBSTR(ID,4,1))+1,3,'0')
                 'A005@gmail.com', 'U', 'Y', 
         CURRENT_DATE);
 
+UPDATE USERINFO  SET AUTH = 'U'
+ WHERE ID IN ('A','B');
 
 
 
@@ -112,3 +114,17 @@ SELECT 'A'||LPAD(MAX(SUBSTR(ID,4,1))+1,3,'0')
 
 
 
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       

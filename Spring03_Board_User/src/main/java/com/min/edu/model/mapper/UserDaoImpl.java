@@ -46,5 +46,15 @@ public class UserDaoImpl implements IUserDao {
 	public String findId(Map<String, Object> map) {
 		return  session.selectOne(NS+"findId", map);
 	}
+	
+	@Override
+	public List<UserVo> getAllUser() {
+		return session.selectList(NS+"getAllUser");
+	}
+	
+	@Override
+	public int setChangeAuth(Map<String, Object> map) {
+		return session.update(NS+"setChangeAuth",map);
+	}
 
 }

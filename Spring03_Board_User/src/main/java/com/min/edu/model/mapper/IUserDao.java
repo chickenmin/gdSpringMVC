@@ -49,7 +49,18 @@ public interface IUserDao {
  */
 	public String findId(Map<String, Object> map);
 	
+	/**
+	 * 회원전체조회
+	 * @return List<UserVo>
+	 */
+	public List<UserVo> getAllUser();
 	
+	/**
+	 * 회원권한변경
+	 * @param map checkid authValue
+	 * @return 0 혹은 1
+	 */
+	public int setChangeAuth(Map<String, Object> map);
 	
 	
 	

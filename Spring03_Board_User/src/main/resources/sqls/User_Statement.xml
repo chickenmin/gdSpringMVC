@@ -66,6 +66,25 @@
 		 AND AUTH='U'
 	</select>
 
+
+	<!--전체 사용자 조회  -->
+	<select id="getAllUser" resultType="UserVo">
+		SELECT ID, NAME, PASSWORD, 
+	                EMAIL, AUTH, ENABLE, 
+	                JOININDATE
+	 	FROM USERINFO u
+	</select>
+	
+	<!--회원 권한 변경  -->
+	<update id="setChangeAuth">
+		UPDATE USERINFO  SET AUTH = #{authValue}
+ 		  WHERE ID IN
+ 		  <foreach collection="checkid" item="id" open="(" separator="," close=")">	
+<!--  		  list를 받을때는 소문자 list, map으로 받을 경우 map의 key값 -->
+ 		  	#{id}
+ 		  </foreach>
+	</update>
+
 </mapper>
 
 

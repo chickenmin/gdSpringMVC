@@ -12,23 +12,29 @@
 </head>
 <body>	
 	<div class="container" style="margin-top: 100px;">
-		<table class="table table-hover">
-			<tr>
-				<td>아이디</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="로그인">
-					<input type="button" value="회원가입" onclick="javascript:location.href='./signupForm.do'">
-					<input type="button" value="아이디 찾기" onclick="findId()">
-				</td>
-			</tr>
-		</table>
+		<form action="./login.do" method="post">
+			<table class="table table-hover">
+				<tr>
+					<td>아이디</td>
+					<td>
+						<input type="text" name="id" required="required">
+					</td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td>
+						<input type="password" name="password" required="required">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="로그인">
+						<input type="button" value="회원가입" onclick="javascript:location.href='./signupForm.do'">
+						<input type="button" value="아이디 찾기" onclick="findId()">
+					</td>
+				</tr>
+			</table>
+		</form>
 	</div>
 
 </body>
