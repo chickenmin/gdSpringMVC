@@ -10,7 +10,7 @@ public interface IBoardService {
 	
 	
 //	게시글 삭제하기      delflagBoard
-	public int delflagboard(List<String> seqs);
+	public int delflagboard(List<String> chkVal);
 //	게시글 쓰기          writeboard
 	public int writeboard(BoardVo vo);
 	
@@ -24,4 +24,6 @@ public interface IBoardService {
 	public List<BoardVo> restoreboard();
 //	게시글 복구             restoredelflag
 	public int restoredelflag(List<String> seqs);
+
+
 }

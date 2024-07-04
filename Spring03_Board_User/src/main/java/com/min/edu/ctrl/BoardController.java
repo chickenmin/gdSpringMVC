@@ -62,15 +62,12 @@ public class BoardController {
 		return "boardList";
 	}
 	
-	@GetMapping(value = "/multiDelete.do")
 	@PostMapping(value = "/multiDelete.do")
 	public String multiDelete(@RequestParam List<String> chkVal,
-							 @RequestParam("chkVal") String[] seqs,
 							 @RequestParam Map<String, String> mapSeqs) {
 		log.info("BoardController multiDelete.do 다중삭제 요청");
 		
 		log.info("List {}",chkVal);
-		log.info("String[] {}", Arrays.toString(seqs));
 		log.info("Map {}",mapSeqs);	//MAP은 이름이 같은 경우 하나만 가져옴
 		
 		int n= service.delflagboard(chkVal);
@@ -78,6 +75,27 @@ public class BoardController {
 		
 		return "redirect:./boardList.do";
 	}
+	
+	@GetMapping(value = "/multiDelete.do")
+	public String multiDelete(
+			@RequestParam("chkVal") String[] seqs,
+			@RequestParam Map<String, String> mapSeqs) {
+		log.info("BoardController multiDelete.do 다중삭제 요청");
+		
+		log.info("String[] {}", Arrays.toString(seqs));
+		log.info("Map {}",mapSeqs);	//MAP은 이름이 같은 경우 하나만 가져옴
+		int n= service.delflagboard(Arrays.asList(seqs));
+		log.info("다중삭제된 결과 {}",n);
+		
+		return "redirect:./boardList.do";
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping(value = "/insertBoard.do")
 	public String insertBoard() {
