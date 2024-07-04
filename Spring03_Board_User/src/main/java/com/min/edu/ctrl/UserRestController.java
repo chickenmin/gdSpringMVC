@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.ognl.MemberAccess;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.min.edu.model.service.IBoardService;
 import com.min.edu.model.service.IUserService;
 import com.min.edu.vo.UserVo;
 
@@ -30,6 +32,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserRestController {
 	
 	private final IUserService service;
+	private final IBoardService boardService;
 
 	@PostMapping(value = "/duplicationAjax.do")
 	public String duplicationAjax(String checkId) {
@@ -124,6 +127,14 @@ public class UserRestController {
 		
 		return gson.toJson(searchList);
 	}
+	
+	@GetMapping(value = "/restore.do")
+	public String restore(@RequestParam List<String>seqs){
+		log.info("BoardController restore.do 삭제 글 복구 : {}",seqs);
+		int n =boardService.restoredelflag(seqs);
+		return (n>0)?"true":"false";
+	}
+	
 
 
 }

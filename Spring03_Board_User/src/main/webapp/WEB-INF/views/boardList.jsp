@@ -26,7 +26,7 @@
 		</div>
 		<form action="./multiDelete.do" method="post" onsubmit="return chkBox()">
 			<input type="submit" value="삭제">
-			<input type="button" value="새글작성" onclick="location.href='inserBoard.do'">
+			<input type="button" value="새글작성" onclick="location.href='insertBoard.do'">
 			
 			<c:if test="${loginVo.auth eq 'A'}">
 				<input type="button" value="회원전체조회" onclick="location.href='./userSelectAll.do'">
@@ -50,7 +50,7 @@
 							</td>
 							<td>${fn:length(boardList)-vs.index}</td>
 							<td>${vo.id}</td>
-							<td>${vo.title}</td>
+							<td><a href="./detailBoard.do?seq=${vo.seq}"> ${vo.title}</a></td>
 							<td>
 								<fmt:parseDate var="cDate" value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 								<fmt:formatDate value="${cDate}"/>

@@ -5,10 +5,17 @@
                                         
 	<!-- 게시판 리스트        userboardlist            -->
 		<select id="userboardlist" resultType="BoardVo">
-			SELECT SEQ ,ID ,TITLE ,"DEPTH" ,STEP ,"REF" ,DELFLAG ,REGDATE 
- 			FROM ANSWERBOARD 
- 			WHERE DELFLAG ='N'
- 			ORDER BY REF DESC
+		<![CDATA[
+			SELECT SEQ, ID,  LPAD(' ', 5*"DEPTH" ,'~') ||
+			CASE
+			WHEN "DEPTH">0 THEN '<img>'
+			END ||
+			TITLE AS TITLE, "DEPTH"
+			"DEPTH" , STEP , "REF" , DELFLAG , REGDATE
+			FROM ANSWERBOARD a
+			WHERE DELFLAG='N'
+			ORDER BY REF DESC
+			]]>
 		</select>
 		
 	<!-- 게시글 삭제하기      delflagboard              -->
@@ -51,7 +58,7 @@
 		<update id="replyupdate">
 			UPDATE ANSWERBOARD SET STEP = STEP +1
 			 WHERE "REF" =(SELECT "REF"  FROM ANSWERBOARD a WHERE SEQ =#{seq})
-			 AND  STEP > (SELECT STEP FROM ANSWERBOARD a2 WHERE SEQ = #{seq});
+			 AND  STEP > (SELECT STEP FROM ANSWERBOARD a2 WHERE SEQ = #{seq})
 		</update>
 		
 	<!-- 답글 입력           replyinsert             -->
@@ -61,8 +68,8 @@
                 CONTENT, "REF", STEP, 
                 "DEPTH", REGDATE)
 			VALUES(ANSWERBOARD_SEQ.NEXTVAL, #{id}, #{title},
-                #{content}, (SELECT "REF" FROM ANSWERBOARD a WHERE SEQ='11')  , (SELECT STEP+1 FROM ANSWERBOARD a2 WHERE SEQ='11'), 
-                (SELECT "DEPTH" FROM ANSWERBOARD a3 WHERE SEQ='11')+1, CURRENT_DATE);
+                #{content}, (SELECT "REF" FROM ANSWERBOARD a WHERE SEQ=#{seq})  , (SELECT STEP+1 FROM ANSWERBOARD a2 WHERE SEQ=#{seq}), 
+                (SELECT "DEPTH" FROM ANSWERBOARD a3 WHERE SEQ=#{seq})+1, CURRENT_DATE)
 		</insert>
 	                                       
 	<!-- 삭제된 게시글 조회      restoreboard            -->
@@ -82,5 +89,7 @@
        		 <foreach collection="list" item="seq" open="(" separator="," close=")">
        		 	#{seq}
        		 </foreach>
-		</update>                                        
+		</update>          
+		
+	                          
 </mapper>

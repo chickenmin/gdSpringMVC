@@ -109,7 +109,12 @@ UPDATE USERINFO  SET AUTH = 'U'
 
 
 
-
+SELECT 
+	CASE 
+		WHEN "DEPTH" >0  THEN '<img src=''./img/reply.png''>'
+	END||
+	LPAD(' ',5*"DEPTH" ,'~~') || TITLE ,"DEPTH" 
+ FROM ANSWERBOARD a ;
 
 
 
