@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--TODO 014  -->
+<mapper namespace="com.min.edu.model.mapper.UserDaoImpl">
+
+<!--
+	resultMap의 사용
+	1) join문법을 사용해서 값을 생성 (1:1, 1:n) <collection> , <association>
+	2) column이 매핑되는 set메소드가 다른 경우
+  -->
+  
+  <resultMap type="UserVo" id="UserVoMap">
+  	<result column="ID" property="id"/>
+  	<result column="NAME" property="name"/>
+  	<result column="EMAIL" property="email"/>
+  	<result column="AUTH" property="auth"/>
+  </resultMap>
+
+<!-- selectList(NS), selectOne(NS)은 myBatis에서 객체를 반드시 반환하게 되어 있다
+	 값이 있는 경우 List / Object 
+	 공집합이 있는 경우 List /null
+	 확인방법 : size()/null 판단
+	 
+	 MVC구조에서 값을 전달 방법
+	 V(name을 통해서 전달) -> Primitive, DTO/VO, Map -> 
+	 값을 받는다, setter 호출, {"name":value}
+	 작업 로직으로 편하기 위해서 view와 DTO의 mapper의 이름을 맞추면 편하게 사용할 수 있다
+	 name = "age" <=>setAge(T t)
+	   -->
+	<select id="login" resultMap="UserVoMap">
+		SELECT ID,NAME,EMAIL,AUTH,JOININDATE		<!--3.6이후 버전부터 resultMap에 선언되어잇지 않아도 statement값 안 컬럼에 있으면 값이 넘어옴  -->
+		 FROM USERINFO
+		 WHERE ID=#{id} AND PASSWORD = #{password}
+	</select>
+
+</mapper>
