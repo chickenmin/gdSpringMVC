@@ -15,7 +15,6 @@
 		<ul>
 			<li>${requestScope.loginVo }</li>
 			<li>${sessionScope.loginVo }</li>
-			<li>${loginVo }</li>
 		</ul>
 	</fieldset>
 	
@@ -23,7 +22,7 @@
 		<header id="header">
 			<h1>헤더영역</h1>
 			${sessionScope.loginVo.name}님 반갑습니다
-			<c:if test="${loginVo.auth eq 'A' }">
+			<c:if test="${loginVo.auth eq 'U' }">
 				<div>
 					<a href="#">[게시판보기]</a>
 				</div>
@@ -62,6 +61,8 @@
 					콘텐츠 메뉴
 					<ul>
 						<li> <a href="./sessionInit.do">HttpSession의 값을 확인해보자</a> </li>
+						<!--TODO 047  -->
+						<li> <a href="./modelAttribute.do">@ModelAttribute()</a> </li>
 					</ul>
 				</div>
 			</section>
@@ -72,6 +73,62 @@
 			</footer>
 	</div>
 </body>
+<style type="text/css">
+#page {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#header {
+	background-color: burlywood;
+	text-align: center;
+}
+
+#header>h1, #header>div{
+	display: inline-block; /* 값의 크기 만큼 영역은 가져감*/
+	line-height: 40px;
+}
+
+#nav li {
+	display: inline-block;
+	background-color: lightcyan;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 10%;
+}
+
+#aside {
+	border: 1px solid tan;
+	width: 20%;
+	min-height: 500px;
+	float: left;
+	line-height: 100px;
+	list-style: none;
+	padding-left: 10px;
+}
+
+#section {
+	border: 1px solid tan;
+	min-height: 500px;
+	margin-left: 200px;
+/* 	float: right; */
+}
+
+#footer {
+	clear: both;
+	height: 80px;
+	background-color: burlywood;
+}
+
+#footer p {
+	text-align: center;
+	line-height: 80px;
+}
+
+</style>
+
+
 </html>
 
 

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,6 @@ import com.min.edu.vo.UserVo;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Slf4j
 @Controller
@@ -60,6 +60,39 @@ public class LoginController {
 			
 		}
 		return "afterLogin";
+	}
+	
+	//TODO 027
+	@GetMapping(value = "/logout.do")
+	public String logout(HttpSession session,Model model) {
+		log.info("@Controller LoginController logout.do 요청받은 값");
+		log.info("session 삭제 session.invalidate()"); 	//session의 사용이 무효화되면 메소드를 사용할 수 없다
+		
+		UserVo modelVo = (UserVo) model.getAttribute("loginVo");
+		if (modelVo == null) {
+			log.info("model scope는 HttpServletRequest이기 때문에 값을 유지할 수 없다");
+		}
+		
+		UserVo sessionVo = (UserVo) session.getAttribute("loginVo");
+		if (sessionVo != null) {
+			log.info("HttpSession은 삭제되기 전까지 유지된다. {}",sessionVo);
+		}
+			
+		//TODO 028
+		//세션의 삭제는 invalidate(), removeAttribute("")
+		try {
+//			session.invalidate();
+			UserVo vo = (UserVo) session.getAttribute("loginVo");
+		} catch (Exception e) {
+			log.info("invalidate()는 객체 자체를 삭제하기 때문에 getAttribute : 세션이 무효화 되었습니다.");
+			e.printStackTrace();
+		}
+		
+		session.removeAttribute("loginVo");
+		UserVo removeVo = (UserVo) session.getAttribute("loginVo");
+		log.info("HtttpSession의 내부에 이름이 같은 객체만 삭제된다 . {}" , removeVo);
+		
+		return "redirect:/main.do";
 	}
 }
 
