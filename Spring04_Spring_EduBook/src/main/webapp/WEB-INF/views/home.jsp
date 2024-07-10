@@ -61,6 +61,9 @@
 					<!--TODO 024   -->
 					 	<input class="btn btn-warning" type="submit" 
 					 	value='<spring:message code="label.login"/>'>
+					 	
+					 	<!--TODO 072  -->
+					 	<input type="button" class="회원가입 form Validation" value="formValidation" onclick="location.href='./formValidation.do'">
 					</th>
 				</tr>
 			</table>

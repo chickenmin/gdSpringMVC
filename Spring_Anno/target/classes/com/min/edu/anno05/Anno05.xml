@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!--클래스 내에 있는 Annotatioin의 동작  -->
+	<context:annotation-config/>
+	
+	<bean id="stu01" class="com.min.edu.anno05.Student">
+		<property name="name" value="월요일"/>
+		<property name="addr" value="서울"/>
+		<property name="age" value="100"/>
+	</bean>
+	
+	<bean id="stu02"  class="com.min.edu.anno05.Student">
+		<property name="name" value="화요일"/>
+		<property name="addr" value="서울"/>
+		<property name="age" value="200"/>
+	</bean>
+	
+	<bean id="stu03" class="com.min.edu.anno05.Student">
+		<property name="name" value="수요일"/>
+		<property name="addr" value="서울"/>
+		<property name="age" value="300"/>
+	</bean>
+	
+	<bean id="school" class="com.min.edu.anno05.School">
+		<property name="grade" value="1"/>
+	</bean>
+	
+</beans>

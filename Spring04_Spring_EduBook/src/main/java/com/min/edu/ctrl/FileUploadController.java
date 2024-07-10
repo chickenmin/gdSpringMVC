@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.http.HttpRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -134,6 +137,85 @@ public class FileUploadController {
 		
 		return bytes;
 	}
+	
+	
+	@PostMapping(value = "/uploadAjax.do")
+	@ResponseBody
+	public Map<String, String> fileUploadAjax(HttpServletRequest request,
+												Model model,
+												List<MultipartFile> file,
+												String desc){
+		log.info("FileUploadController  fileUploadAjax ajax");
+		
+		for (MultipartFile f : file) {
+			log.info("파일의 이름 : {}",f.getOriginalFilename() );
+			String originFileName = f.getOriginalFilename();
+			String saveFileName = UUID.randomUUID().toString().concat(originFileName.substring(originFileName.indexOf(".")));
+			log.info("기존 파일명 {}",originFileName);
+			log.info("기존 파일명 {}",saveFileName);
+			
+			
+			InputStream inputStream = null;
+			OutputStream outputStream = null;
+			String path = "";
+			
+			try {
+				// 1)파일을 읽는다
+				inputStream = f.getInputStream();
+				
+				//2) 저장 위치를 만든다
+				path = WebUtils.getRealPath(request.getSession().getServletContext(),"/storage"); //상대경로
+				String path02 = request.getSession().getServletContext().getRealPath("storage");
+				log.info("저장경로 path : {}\n path02 : {}",path,path02);
+				
+				
+				// 3) 파일 저장 위치
+				File storage = new File(path);
+				if (!storage.exists()) {
+					storage.mkdirs();
+				}
+				
+				//4) 저장 파일 : 저장할 파일이 없다면 생성하고 있다면 오버라이드함
+				File newFile = new File(path+"/"+saveFileName);
+				if (!newFile.exists()) {
+					newFile.createNewFile();
+				}
+				
+				// 5) 읽은 파일을 써주기  (저장)
+				outputStream = new FileOutputStream(newFile);
+				
+				//6) 파일을 읽어서 대상 파일에 써줌 
+				int read = 0;
+				byte[] b = new byte[(int)f.getSize()];
+				while ((read = inputStream.read(b)) != -1) {
+					outputStream.write(b,0,read);
+					
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					inputStream.close();
+					outputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			model.addAttribute("originFileName", originFileName);
+			model.addAttribute("saveFileName", saveFileName);
+			model.addAttribute("path", path);
+		}
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("isc", "true");
+		
+		
+		return map; 
+	}
+	
+	
 }
 
 

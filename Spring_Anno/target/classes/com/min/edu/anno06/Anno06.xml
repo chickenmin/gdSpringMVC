@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!--TODO 001 각 클래스를 Bean으로 tag로 선언하여  사용 -->
+	<!-- <bean id="myUser01" class="com.min.edu.anno06.UserDto">
+		<constructor-arg value="윌슨"/> 생성자를 통해서 값을 입력 	
+			<property name="name" value="윌슨"/> setter 메소드를 통한 입력 
+	</bean>
+	
+	
+	<bean id="userServiceImpl" class="com.min.edu.anno06.UserServiceImpl">
+		<property name="dto01" ref="myUser01"/>
+	</bean> -->
+	
+	<!--TODO 002 기능인 Service를 Annotation, 값의 bean은 <bean> 생성후 주입  -->
+<!-- 	<context:annotation-config/>	autowired 을 읽어올 수 있는 애   / context:component-scan에 포함되어 있음 -->
+<!-- 	<bean id="userDto" class="com.min.edu.anno06.UserDto"> -->
+<!-- 		<constructor-arg value="폭폭"/> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="userServiceImpl" class="com.min.edu.anno06.UserServiceImpl"/> -->
+	
+	
+	<!--TODO 003 context-component-scan을 통한 작업
+				base-package(top-level)의 하위에 포함하는 모든 Annotation과 stereoType을 자동으로 bean으로 등록해줌
+	  -->
+	  <context:component-scan base-package="com.min.edu.anno06"/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
