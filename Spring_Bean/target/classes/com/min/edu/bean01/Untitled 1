@@ -1,0 +1,7 @@
+Bean01
+
+기존 POJO 방식은 작성된 CLASS를 메모리를 통해서 CLASS 사용하기 위해 NEW 예약어를 통해 인스턴스화했다
+
+하지만 Spring Framework은 Spring Container가 관리하는 객체(spring bean)
+	따라서 Spring Bean을 생성하기 위해서 xml방식 혹은 Annotation 방식을 통해서 자동으로 생성
+	생성된 Bean 객체는 static final로 선언되어 spring container가 관리하게 됨(타입,이름)

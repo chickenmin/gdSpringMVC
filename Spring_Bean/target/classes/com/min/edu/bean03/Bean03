@@ -1,0 +1,41 @@
+Bean03
+
+Spring bean Configuration 에 의해서 생성된 bean을 ref속성을 통해서 연결
+
+1) java Annotation을 통해서 주입하는 방법 : @Resource
+2) spring 주입 방식 : @Autowired (타입을 -> 이름)
+
+@Required는 강제 주입의 필수 조건을 만들어줌
+5.1버전 이상부터 deprecate되어 사용을 지양한다
+
+변경전>
+public class UserDto{
+
+	private String name;
+	public String getName(){
+		return name;
+	}
+	
+	@Required
+	public void setName(String name){
+		this.name = name;
+	}
+	
+}
+변경후>
+	
+public class UserDto{
+
+	private String name;
+	
+	public UserDto(String name){
+		this.name = name;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	
+	
+}

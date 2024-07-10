@@ -1,0 +1,9 @@
+Bean02
+
+Spring Container가 다른 bean을 참조 하는방법
+참조를 하는 객체와 참조 객체는 모두 SPRING container의 bean객체이어야 한다
+일반 pojo spring에서 참조할 수 없다
+
+참조는 
+<bean>에서는 ref로 참조하면 되고
+Annotation에서는 @Autowired, @resource...등을 통한 주입

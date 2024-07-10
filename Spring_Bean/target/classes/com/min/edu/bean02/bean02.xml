@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myAddr01" class="com.min.edu.bean02.EmployeeAddress"/>
+	
+	<bean id="myAddr02" class="com.min.edu.bean02.EmployeeAddress">
+		<property name="addr" value="영국"/>
+		<property name="name" value="푸린"/>
+		<property name="phone" value="12"/>
+	</bean>
+	
+	<bean id="myAddr03" class="com.min.edu.bean02.EmployeeAddress">
+		<property name="addr" value="미국"/>
+		<property name="name" value="파이리"/>
+		<property name="phone" value="34"/>
+	</bean>
+	
+	<bean class="com.min.edu.bean02.JobAddress">
+		<constructor-arg ref="myAddr03"/>
+		<constructor-arg value="개발자"/>
+	</bean>
+
+</beans>
