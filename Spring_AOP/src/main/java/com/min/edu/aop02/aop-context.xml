@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--일반적인 pojo 객체를 bean으로 등록  -->
+<bean id="cTO" class="com.min.edu.aop02.CTO"/>
+<bean id="employees" class="com.min.edu.aop02.Employees"/>
+<bean id="myAspect" class="com.min.edu.aop02.CCC_Aspect"/>
+
+<!--CC와 CCC가 Proxy를 토앻서 하나의 실행 객체가 되도록 생성해주는 bean  -->
+<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+
+<bean class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+	<property name="advice" ref="myAspect"/>
+	<property name="expression" value="execution(public * *(..))"/>
+</bean>
+
+</beans>

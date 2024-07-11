@@ -1,0 +1,7 @@
+AOP02
+
+bean으로 cc와 ccc를 작성
+
+auto-proxy가 동작되도록 설정
+advice를 작성한다
+ point-cut 설정 expression 문법으로 작성

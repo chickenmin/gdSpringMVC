@@ -1,0 +1,4 @@
+AOP03
+
+CCC설정을 Annotation으로 설정
+<aop:aspectj-autoproxy/>를 spring bean configuration에 작성
